@@ -3,6 +3,11 @@ directory "/var/www" do
   group "vagrant"
 end
 
+directory "/var/www/html" do
+  owner "vagrant"
+  group "vagrant"
+end
+
 file "/var/www/html/index.html" do
   action :delete
 end
