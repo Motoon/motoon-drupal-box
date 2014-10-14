@@ -18,6 +18,8 @@ Vagrant.configure("2") do |config|
       host: port["host_port"], protocol: port["protocol"], auto_correct: true
   end
 
+  config.ssh.forward_agent = true
+
   # Customize provider.
   config.vm.provider :virtualbox do |vb|
     # RAM.

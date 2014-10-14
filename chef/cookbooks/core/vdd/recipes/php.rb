@@ -14,7 +14,8 @@ pkgs = [
   "php5-mysql",
   "php5-mcrypt",
   "php5-curl",
-  "php5-dev"
+  "php5-dev",
+  "php5-memcached"
 ]
 
 pkgs.each do |pkg|
