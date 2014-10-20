@@ -1,0 +1,18 @@
+{
+  "name": "motoon",
+  "env_run_lists": {},
+  "default_attributes": {
+    "mysql": {
+      "server_root_password": "root",
+      "server_repl_password": "root",
+      "server_debian_password": "root"
+    }
+  },
+  "override_attributes": {},
+  "json_class": "Chef::Role",
+  "run_list": [
+    "recipe[motoon::memcached]"
+  ],
+  "description": "Customized Drupal development environment for Acquia.",
+  "chef_type": "role"
+}
