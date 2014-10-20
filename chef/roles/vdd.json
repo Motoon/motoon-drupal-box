@@ -34,7 +34,6 @@
     "recipe[vdd::drush]",
     "recipe[vdd::vdd_help]",
     "recipe[vdd::vim]",
-    "recipe[vdd::memcached]",
     "recipe[vdd::patchutils]",
     "recipe[vdd::siege]",
     "recipe[vdd_example]"
