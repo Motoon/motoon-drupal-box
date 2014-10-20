@@ -11,7 +11,8 @@
   "override_attributes": {},
   "json_class": "Chef::Role",
   "run_list": [
-    "recipe[motoon::memcached]"
+    "recipe[motoon::memcached]",
+    "recipe[motoon::acquia]"
   ],
   "description": "Customized Drupal development environment for Acquia.",
   "chef_type": "role"
