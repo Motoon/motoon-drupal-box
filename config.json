@@ -21,8 +21,8 @@
         "site_mail": "box@example.com",
         "vhost": {
           "document_root": "drupal8",
-          "url": "drupal8.dev",
-          "alias": ["www.drupal8.dev"]
+          "url": "drupal8.local",
+          "alias": ["www.drupal8.local"]
         }
       },
       "drupal7": {
@@ -33,8 +33,8 @@
         "site_mail": "box@example.com",
         "vhost": {
           "document_root": "drupal7",
-          "url": "drupal7.dev",
-          "alias": ["www.drupal7.dev"]
+          "url": "drupal7.local",
+          "alias": ["www.drupal7.local"]
         }
       }
     }
