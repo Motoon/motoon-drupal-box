@@ -6,6 +6,7 @@ end
 directory "/var/www/html" do
   owner "vagrant"
   group "vagrant"
+  action :create
 end
 
 file "/var/www/html/index.html" do
