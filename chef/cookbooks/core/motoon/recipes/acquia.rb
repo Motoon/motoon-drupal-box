@@ -8,7 +8,7 @@ if node["vdd"]["sites"]
   node["vdd"]["sites"].each do |index, site|
 
     # Create subidrectores, allow for multiple layers deep.
-    htdocs = "/var/www/site-php/" + sitename
+    htdocs = "/var/www/site-php/" + index
     directory htdocs do
       owner "vagrant"
       group "vagrant"
@@ -16,7 +16,7 @@ if node["vdd"]["sites"]
       action :create
     end
 
-    template htdocs + '/' + sitename + '-settings.inc' do
+    template htdocs + '/' + index + '-settings.inc' do
       source "acquia_sql.inc.erb"
       mode "0644"
     end
