@@ -43,7 +43,8 @@
       <% @sites.each do |index, site| %>
         <% site["site_stages"].each do |stage| %>
       <li>
-         <a href="http://<%= stage %>.<%= index %>.local"><%= site["site_name"] %></a> (Drush alias is @<%= index %>.<%= stage %>)
+         <a href="http://<%= stage %>.<%= index %>.local"><%= site["site_name"] %> Stage: <%= stage %></a>
+	 (Drush alias is @<%= index %>.<%= stage %>)
       </li>
         <% end %>
       <% end %>

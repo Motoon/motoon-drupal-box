@@ -4,7 +4,7 @@
      <% site["site_stages"].each do |stage| %>
    
 // Drush alias for <%= index %> stage <%= stage %>
-$aliases['<%= index %>.<%= stage  %>'] = array(
+$aliases['<%= index %>.<%= stage  %>.loc'] = array(
   'root' => '/var/www/<%= index %>/<%= stage %>/docroot',
   'uri' => '<%= stage %>.<%= index %>.local',
   'databases' => array (
