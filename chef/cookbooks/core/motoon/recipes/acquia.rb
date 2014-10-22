@@ -6,7 +6,6 @@ end
 if node["vdd"]["sites"]
 
   node["vdd"]["sites"].each do |index, site|
-    sitename = index
 
     # Create subidrectores, allow for multiple layers deep.
     htdocs = "/var/www/site-php/" + sitename
@@ -20,7 +19,6 @@ if node["vdd"]["sites"]
     template htdocs + '/' + sitename + '-settings.inc' do
       source "acquia_sql.inc.erb"
       mode "0644"
-      variables ({:dbname => sitename})
     end
   end
 end

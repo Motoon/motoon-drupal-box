@@ -1,9 +1,13 @@
+<?php
+require_once "/var/www/site-php/site-info.php";
 
- $databases['default']['default'] = array(
-   'driver' => 'mysql',
-   'database' => '<%= @dbname %>',
-   'username' => 'root',
-   'password' => 'root',
-   'host' => 'localhost',
-   'collation' => 'utf8_general_ci',
- );
+list($site_name, $site_stage) = _site_info();
+
+$databases['default']['default'] = array(
+  'driver' => 'mysql',
+  'database' => $site_name.'.'.$site_stage,
+  'username' => 'root',
+  'password' => 'root',
+  'host' => 'localhost',
+  'collation' => 'utf8_general_ci',
+);
