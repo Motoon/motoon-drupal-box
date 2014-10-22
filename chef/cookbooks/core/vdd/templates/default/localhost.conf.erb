@@ -9,18 +9,17 @@
 </VirtualHost>
 
 <% @node["vdd"]["sites"].each do |index, site| %>
-  <%- if defined?(site["vhost"]) then -%>
+  <% site["site_stages"].each do |stage| %>
     <VirtualHost *:80>
-      DocumentRoot /var/www/<%= defined?(site["vhost"]["document_root"]) ? site["vhost"]["document_root"] : index %>
-      ServerName <%= defined?(site["vhost"]["url"]) ? site["vhost"]["url"] : index %>
-      ServerAlias <%= defined?(site["vhost"]["alias"]) ? site["vhost"]["alias"].join(" ") : index %>
+      DocumentRoot /var/www/<%= index %>/<%= stage %>/docroot
+      ServerName <%= stage %>.<%= index %>.local
       ServerAdmin <%= site["account_mail"] %>
       RewriteEngine On
-      ErrorLog /var/log/apache2/<%= index %>.error.log
+      ErrorLog /var/log/apache2/<%= index %>-<%= stage %>.error.log
       LogLevel warn
-      CustomLog /var/log/apache2/<%= index %>.access.log combined
+      CustomLog /var/log/apache2/<%= index %>-<%= stage %>.access.log combined
       ServerSignature On
-      <Directory /var/www/<%= defined?(site["vhost"]["document_root"]) ? site["vhost"]["document_root"] : index %> >
+      <Directory /var/www/<%= index %>/<%= stage %>/docroot >
         AllowOverride All
       </Directory>
     </VirtualHost>

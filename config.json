@@ -13,30 +13,23 @@
   },
   "vdd": {
     "sites": {
-      "test": {
-        "account_name": "root",
-        "account_pass": "root",
+      "drupal7": {
+        "account_name": "admin",
+        "account_pass": "admin",
         "account_mail": "box@example.com",
-        "site_name": "Staging",
-        "site_mail": "box@example.com",
-        "vhost": {
-          "document_root": "test",
-          "url": "test.local",
-          "alias": ["www.test.local"]
-        }
-      },
-      "dev": {
-        "account_name": "root",
-        "account_pass": "root",
+        "site_name": "Drupal 7",
+        "site_mail": "alaa@manalaa.net",
+        "site_stages": ["dev", "test"]
+      }
+      "drupal8": {
+        "account_name": "admin",
+        "account_pass": "admin",
         "account_mail": "box@example.com",
-        "site_name": "Development",
-        "site_mail": "box@example.com",
-        "vhost": {
-          "document_root": "dev",
-          "url": "dev.local",
-          "alias": ["www.dev.local"]
-        }
+        "site_name": "Drupal 8",
+        "site_mail": "alaa@manalaa.net",
+        "site_stages": ["dev", "test"]
       }
     }
   }
 }
+

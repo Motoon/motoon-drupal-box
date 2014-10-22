@@ -1,17 +1,19 @@
 <?php
 
 <% @node["vdd"]["sites"].each do |index, site| %>
-// Drush alias for <%= index %>
-$aliases['<%= index %>'] = array(
-  'root' => '/var/www/<%= defined?(site["vhost"]["document_root"]) ? site["vhost"]["document_root"] : index %>',
-  'uri' => '<%= defined?(site["vhost"]["url"]) ? site["vhost"]["url"] : node["vm"]["ip"] + "/" + index %>',
+     <% site["site_stages"].each do |stage| %>
+   
+// Drush alias for <%= index %> stage <%= stage %>
+$aliases['<%= index %>.<%= stage  %>'] = array(
+  'root' => '/var/www/<%= index %>/<%= stage %>/docroot',
+  'uri' => '<%= stage %>.<%= index %>.local',
   'databases' => array (
     'default' => array (
       'default' => array (
         'driver' => 'mysql',
         'username' => 'root',
         'password' => '<%= node["mysql"]["server_root_password"] %>',
-        'database' => '<%= index %>',
+        'database' => '<%= index %>.<%= stage %>',
       ),
     ),
   ),
@@ -26,5 +28,5 @@ $aliases['<%= index %>'] = array(
     ),
   ),
 );
-
+  <% end %>
 <% end %>

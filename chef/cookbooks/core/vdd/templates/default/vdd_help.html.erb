@@ -32,13 +32,8 @@
     <ul class="code">
       <li># Sites declared in VDD's config.json</li>
       <% @sites.each do |index, site| %>
-        <%- if defined?(site["vhost"]["url"]) then -%>
-          <li><%= node["vm"]["ip"] %> <%= site["vhost"]["url"] %> </li>
-        <%- end -%>
-        <%- if defined?(site["vhost"]["alias"]) then -%>
-          <%- site["vhost"]["alias"].each do |vhostalias| -%>
-            <li><%= node["vm"]["ip"] %> <%= vhostalias %> </li>
-          <%- end -%>
+        <% site["site_stages"].each do |stage| %>
+          <li><%= node["vm"]["ip"] %> <%= stage %>.<%= index %>.local </li>
         <%- end -%>
       <% end %>
       <li># End of sites declared with VDD</li>
@@ -46,13 +41,11 @@
 
     <ul>
       <% @sites.each do |index, site| %>
+        <% site["site_stages"].each do |stage| %>
       <li>
-       <%- if defined?(site["vhost"]["url"]) then -%>
-         <a href="http://<%= site["vhost"]["url"] %>"><%= site["site_name"] %></a> (Drush alias is @<%= index %>)
-       <%- else -%>
-         <a href="/<%= index %>"><%= site["site_name"] %></a> (Drush alias is @<%= index %>)
-       <%- end -%>
+         <a href="http://<%= stage %>.<%= index %>.local"><%= site["site_name"] %></a> (Drush alias is @<%= index %>.<%= stage %>)
       </li>
+        <% end %>
       <% end %>
     </ul>
 
