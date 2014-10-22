@@ -20,7 +20,7 @@
         "site_name": "Drupal 7",
         "site_mail": "alaa@manalaa.net",
         "site_stages": ["dev", "test"]
-      }
+      },
       "drupal8": {
         "account_name": "admin",
         "account_pass": "admin",
