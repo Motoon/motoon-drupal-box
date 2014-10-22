@@ -28,7 +28,7 @@ function _site_info() {
   // Verify the site directory is in an expected location, extract the
   // sitename from it.
   if (isset($site_dir) &&
-    preg_match('@^/var/www/([a-z0-9_\-]+)/(a-z0-9_\-)/@i', $site_dir, $m)) {
+    preg_match('@^/var/www/([a-z0-9_\-]+)/([a-z0-9_\-]+)/@i', $site_dir, $m)) {
     $site_name = $m[1];
     $site_stage = $m[2];
     return array($site_name, $site_stage);
